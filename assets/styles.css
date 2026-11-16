@@ -131,8 +131,8 @@ main {
 /* トップページ：最初に見える大きな領域 */
 .hero {
   display: flex;
-  min-height: min(740px, calc(100vh - 92px));
-  padding: clamp(4rem, 9vw, 8rem) 0 3rem;
+  min-height: min(560px, calc(100vh - 92px));
+  padding: clamp(3rem, 6vw, 5rem) 0 1.5rem;
   flex-direction: column;
   justify-content: center;
 }
@@ -225,6 +225,12 @@ main {
 .latest {
   padding: clamp(4.5rem, 9vw, 8rem) 0;
   border-top: 1px solid var(--line);
+}
+
+/* トップページ：黒丸付きの線と書架の間にある線を消し、余白を詰める */
+.shelves {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  border-top: none;
 }
 
 /* 「Latest notes」など、各セクションの見出し一式 */
