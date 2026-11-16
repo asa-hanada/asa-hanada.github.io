@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="asa-hanadaの制作物、日記、PDFをまとめる個人サイトです。">
+  <meta name="theme-color" content="#f2efe8">
+  <title>asa-hanada — digital shelf</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="トップページ">
+      <span class="brand-mark" aria-hidden="true">A</span>
+      <span>asa-hanada</span>
+    </a>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <a href="projects/">Projects</a>
+      <a href="diary/">Diary</a>
+      <a href="pdf/">PDF</a>
+      <a href="https://github.com/asa-hanada" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">PERSONAL ARCHIVE / TOKYO, JAPAN</p>
+      <div class="hero-grid">
+        <div>
+          <h1 id="hero-title">つくったもの、<br>考えたこと、<br>書いたもの。</h1>
+        </div>
+        <div class="hero-note">
+          <p>コードや小さなウェブサイト、日々の記録、自分で書いたPDFを置いていくための個人アーカイブです。</p>
+          <a class="text-link" href="#shelves">書架を見る <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero-line" aria-hidden="true"><span></span></div>
+    </section>
+
+    <section class="shelves" id="shelves" aria-labelledby="shelves-title">
+      <div class="section-heading">
+        <p class="section-number">01</p>
+        <h2 id="shelves-title">Three shelves</h2>
+        <p>このサイトの3つの入口</p>
+      </div>
+
+      <div class="shelf-grid">
+        <a class="shelf-card shelf-projects" href="projects/">
+          <div class="card-top">
+            <span>01 / PROJECTS</span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </div>
+          <div>
+            <h3>制作物とコード</h3>
+            <p>自分で作ったサイト、ツール、コードを紹介します。ソースコードやデモへのリンクもここから。</p>
+          </div>
+          <span class="card-status">準備中</span>
+        </a>
+
+        <a class="shelf-card shelf-diary" href="diary/">
+          <div class="card-top">
+            <span>02 / DIARY</span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </div>
+          <div>
+            <h3>公開日記</h3>
+            <p>日々の発見、勉強の記録、制作の途中経過。まとまる前の考えも、そのまま残します。</p>
+          </div>
+          <span class="card-status">最初の記事を準備中</span>
+        </a>
+
+        <a class="shelf-card shelf-pdf" href="pdf/">
+          <div class="card-top">
+            <span>03 / PDF LIBRARY</span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </div>
+          <div>
+            <h3>PDF書庫</h3>
+            <p>ノート、文章、資料など、自分で書いたPDFをブラウザで読める形で公開します。</p>
+          </div>
+          <span class="card-status">PDFを追加できます</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="latest" aria-labelledby="latest-title">
+      <div class="section-heading">
+        <p class="section-number">02</p>
+        <h2 id="latest-title">Latest notes</h2>
+        <p>最近の更新</p>
+      </div>
+
+      <div class="note-list">
+        <article class="note-row">
+          <time datetime="2026-11-17">2026.11.17</time>
+          <div>
+            <p class="note-type">SITE NOTE</p>
+            <h3>このサイトをつくりはじめました</h3>
+          </div>
+          <span class="note-tag">START</span>
+        </article>
+        <div class="empty-note">
+          <span aria-hidden="true">＋</span>
+          <p>新しい制作物・日記・PDFを追加すると、ここに表示できます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" aria-labelledby="about-title">
+      <p class="section-number">03</p>
+      <div>
+        <h2 id="about-title">About this place</h2>
+        <p class="about-lead">完成品だけでなく、途中の試行錯誤も置いておく場所。</p>
+      </div>
+      <div class="about-copy">
+        <p>インターネットの片隅に、自分で管理できる小さな書架をつくりました。内容は少しずつ増えていきます。</p>
+        <a class="button-link" href="https://github.com/asa-hanada" target="_blank" rel="noreferrer">GitHubを見る <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year">2026</span> asa-hanada</p>
+    <p>Built slowly, kept openly.</p>
+    <a href="#main">PAGE TOP ↑</a>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
