@@ -470,6 +470,133 @@ main {
   font-weight: 700;
 }
 
+/* 書き物 */
+.writing-categories,
+.diary-list {
+  border-top: 1px solid var(--line);
+}
+
+.writing-category,
+.diary-row {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--line);
+  transition: padding .25s ease, background-color .25s ease;
+}
+
+.writing-category {
+  grid-template-columns: 1fr auto;
+}
+
+.writing-category:hover,
+.diary-row:hover {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  background: var(--surface);
+}
+
+.writing-category h2,
+.diary-row h2 {
+  margin: 0;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-weight: 500;
+}
+
+.writing-category h2 {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+}
+
+.writing-category p:last-child {
+  margin: .75rem 0 0;
+  color: var(--muted);
+}
+
+.diary-row {
+  grid-template-columns: minmax(110px, .5fr) minmax(0, 2fr) auto;
+}
+
+.diary-row time,
+.article-kind,
+.article-header time {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: .72rem;
+  letter-spacing: .06em;
+}
+
+.diary-row h2 {
+  font-size: clamp(1.35rem, 3vw, 2.4rem);
+}
+
+.article-main {
+  max-width: 920px;
+  padding: clamp(4rem, 9vw, 8rem) 0;
+}
+
+.article-header {
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.article-kind {
+  margin: 0 0 1.5rem;
+}
+
+.article-header h1 {
+  margin: 0 0 1.5rem;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -.04em;
+}
+
+.article-body {
+  max-width: 720px;
+  padding: clamp(2.5rem, 6vw, 5rem) 0;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  line-height: 2.05;
+}
+
+.article-body p {
+  margin: 0 0 1.8em;
+}
+
+.article-body h2,
+.article-body h3 {
+  margin: 2.5em 0 1em;
+  line-height: 1.5;
+}
+
+.article-body a {
+  border-bottom: 1px solid currentColor;
+}
+
+.article-body blockquote {
+  margin: 2em 0;
+  padding-left: 1.5rem;
+  color: var(--muted);
+  border-left: 1px solid var(--ink);
+}
+
+.article-body pre {
+  overflow-x: auto;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.article-body code {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: .9em;
+}
+
+.article-nav {
+  border-top: 1px solid var(--line);
+}
+
 @media (max-width: 820px) {
   .site-header {
     align-items: flex-start;
@@ -587,6 +714,15 @@ main {
 
   .empty-state {
     grid-template-columns: 1fr;
+  }
+
+  .diary-row {
+    grid-template-columns: 1fr auto;
+    gap: .5rem 1rem;
+  }
+
+  .diary-row time {
+    grid-column: 1 / -1;
   }
 }
 

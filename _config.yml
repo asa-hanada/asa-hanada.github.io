@@ -1,0 +1,12 @@
+title: asa-hanada
+description: 浅縹の個人アーカイブ
+lang: ja
+timezone: Asia/Tokyo
+markdown: kramdown
+
+defaults:
+  - scope:
+      path: "writings/diary"
+    values:
+      layout: diary
+      type: diary
