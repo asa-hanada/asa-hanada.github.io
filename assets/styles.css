@@ -131,10 +131,10 @@ main {
 /* トップページ：最初に見える大きな領域 */
 .hero {
   display: flex;
-  min-height: min(560px, calc(100vh - 92px));
-  padding: clamp(3rem, 6vw, 5rem) 0 1.5rem;
+  min-height: auto;
+  padding: clamp(2rem, 4vw, 3.5rem) 0 0;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 /* 小さな英字ラベルや番号に共通する文字設定 */
@@ -201,8 +201,8 @@ main {
 .hero-line {
   display: flex;
   align-items: center;
-  height: 80px;
-  margin-top: 2rem;
+  height: 48px;
+  margin-top: 1rem;
 }
 
 .hero-line::before {
@@ -229,7 +229,7 @@ main {
 
 /* トップページ：黒丸付きの線と書架の間にある線を消し、余白を詰める */
 .shelves {
-  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0;
   border-top: none;
 }
 
