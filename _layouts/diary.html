@@ -16,7 +16,7 @@
       <span>asa-hanada</span>
     </a>
     <nav class="site-nav" aria-label="メインナビゲーション">
-      <a href="{{ '/writings/' | relative_url }}">書き物</a>
+      <a href="{{ '/writings/' | relative_url }}" aria-current="page">書き物</a>
       <a href="{{ '/pdf/' | relative_url }}">PDF等</a>
       <a href="{{ '/projects/' | relative_url }}">その他制作物</a>
       <a href="https://github.com/asa-hanada" target="_blank" rel="noreferrer">GitHub ↗</a>
@@ -24,18 +24,33 @@
   </header>
 
   <main id="main" class="article-main">
+    <nav class="breadcrumbs" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="{{ '/' | relative_url }}">ホーム</a></li>
+        <li><a href="{{ '/writings/' | relative_url }}">書き物</a></li>
+        <li><a href="{{ '/writings/diary/' | relative_url }}">日記</a></li>
+        <li aria-current="page">{{ page.date | date: "%Y.%m.%d" }}</li>
+      </ol>
+    </nav>
+
     <article class="diary-entry">
       <header class="article-header">
-        <p class="article-kind">DIARY</p>
+        <div class="article-meta">
+          <p class="article-kind">DIARY / {{ page.date | date: "%Y" }}</p>
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y年%m月%d日" }}</time>
+        </div>
         <h1>{{ page.title }}</h1>
-        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time>
+        {% if page.description %}<p class="article-description">{{ page.description }}</p>{% endif %}
       </header>
       <div class="article-body">
         {{ content }}
       </div>
     </article>
     <nav class="article-nav" aria-label="記事ナビゲーション">
-      <a class="back-link" href="{{ '/writings/diary/' | relative_url }}">← 日記一覧へ</a>
+      <a class="article-return" href="{{ '/writings/diary/' | relative_url }}">
+        <span>日記一覧</span>
+        <small>すべての記録を見る</small>
+      </a>
     </nav>
   </main>
 

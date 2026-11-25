@@ -16,27 +16,81 @@ type: diary-index
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
   <header class="site-header">
-    <a class="brand" href="{{ '/' | relative_url }}"><span class="brand-mark" aria-hidden="true">A</span><span>asa-hanada</span></a>
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="トップページ"><span class="brand-mark" aria-hidden="true">A</span><span>asa-hanada</span></a>
     <nav class="site-nav" aria-label="メインナビゲーション">
-      <a href="{{ '/writings/' | relative_url }}">書き物</a><a href="{{ '/pdf/' | relative_url }}">PDF等</a><a href="{{ '/projects/' | relative_url }}">その他制作物</a><a href="https://github.com/asa-hanada" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <a href="{{ '/writings/' | relative_url }}" aria-current="page">書き物</a><a href="{{ '/pdf/' | relative_url }}">PDF等</a><a href="{{ '/projects/' | relative_url }}">その他制作物</a><a href="https://github.com/asa-hanada" target="_blank" rel="noreferrer">GitHub ↗</a>
     </nav>
   </header>
-  <main id="main" class="subpage-main">
-    <section class="subpage-title">
-      <p class="section-number">01—01</p>
-      <div><h1>日記</h1><p>一日につき一つのページで残す、日々の記録です。</p></div>
+  <main id="main" class="subpage-main diary-main">
+    {% assign diary_entries = site.pages | where: "type", "diary" | sort: "date" | reverse %}
+    {% assign latest_entry = diary_entries | first %}
+
+    <nav class="breadcrumbs" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="{{ '/' | relative_url }}">ホーム</a></li>
+        <li><a href="{{ '/writings/' | relative_url }}">書き物</a></li>
+        <li aria-current="page">日記</li>
+      </ol>
+    </nav>
+
+    <section class="diary-hero" aria-labelledby="diary-title">
+      <div class="diary-hero-label">
+        <p class="section-number">01—01</p>
+        <p>DIARY ARCHIVE</p>
+      </div>
+      <div class="diary-hero-copy">
+        <h1 id="diary-title">日記</h1>
+        <p class="diary-intro">完成したものだけでなく、途中で考えたことや日々の小さな発見も、一日ずつ残していきます。</p>
+        <dl class="diary-summary">
+          <div>
+            <dt>Entries</dt>
+            <dd>{{ diary_entries | size }}</dd>
+          </div>
+          <div>
+            <dt>Latest</dt>
+            <dd>
+              {% if latest_entry %}
+                <time datetime="{{ latest_entry.date | date: '%Y-%m-%d' }}">{{ latest_entry.date | date: "%Y.%m.%d" }}</time>
+              {% else %}
+                —
+              {% endif %}
+            </dd>
+          </div>
+        </dl>
+      </div>
     </section>
-    <section class="diary-list" aria-label="日記一覧">
-      {% assign diary_entries = site.pages | where: "type", "diary" | sort: "date" | reverse %}
-      {% for entry in diary_entries %}
-        <a class="diary-row" href="{{ entry.url | relative_url }}">
-          <time datetime="{{ entry.date | date: '%Y-%m-%d' }}">{{ entry.date | date: "%Y.%m.%d" }}</time>
-          <h2>{{ entry.title }}</h2>
-          <span aria-hidden="true">↗</span>
-        </a>
-      {% endfor %}
+
+    <section class="diary-archive" aria-labelledby="diary-list-title">
+      <header class="diary-archive-heading">
+        <h2 id="diary-list-title">記録</h2>
+        <p>NEWEST FIRST</p>
+      </header>
+      {% if diary_entries.size > 0 %}
+        <ol class="diary-list">
+          {% for entry in diary_entries %}
+            <li>
+              <a class="diary-row" href="{{ entry.url | relative_url }}">
+                <time datetime="{{ entry.date | date: '%Y-%m-%d' }}">
+                  <span class="diary-date-main">{{ entry.date | date: "%m.%d" }}</span>
+                  <span class="diary-date-year">{{ entry.date | date: "%Y" }}</span>
+                </time>
+                <div class="diary-row-copy">
+                  <h3>{{ entry.title }}</h3>
+                  {% if entry.description %}<p>{{ entry.description }}</p>{% endif %}
+                </div>
+                <span class="diary-read-label">読む</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ol>
+      {% else %}
+        <div class="diary-empty">
+          <p>まだ記録はありません。</p>
+          <p>最初の日記を準備しています。</p>
+        </div>
+      {% endif %}
     </section>
-    <a class="back-link" href="{{ '/writings/' | relative_url }}">← 書き物へ</a>
+    <a class="back-link" href="{{ '/writings/' | relative_url }}">書き物へ戻る</a>
   </main>
   <footer class="site-footer"><p>© <span id="year">2026</span> asa-hanada</p><p>Built slowly, kept openly.</p><a href="#main">PAGE TOP ↑</a></footer>
   <script src="{{ '/assets/script.js' | relative_url }}"></script>
